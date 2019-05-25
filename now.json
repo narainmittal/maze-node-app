@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "name": "maze-node-app",
+    "builds": [
+        {
+            "src": "index.js",
+            "use": "@now/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/index.js"
+        }
+    ]
+}
