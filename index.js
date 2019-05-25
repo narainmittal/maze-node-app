@@ -25,4 +25,7 @@ app.post('/solve', function (req, res, next) {
   res.json(solution);
 });
 
+// Uncomment below to use ExpressJs server
+// http.createServer(app).listen(80);	module.exports = app; 
+// https.createServer({}, app).listen(443);
 module.exports = app;
