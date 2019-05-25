@@ -19,25 +19,21 @@ function solve(maze) {
     moveTo(stack, current, start.x, start.y);
 
     while (stack.length > 0) {
-        //console.log(`current ${current.x}, ${current.y}`);
         const next = nextMove(blocks, current, rows, cols);
 
         if (next) {
-            //console.log(`moving to ${next.x}, ${next.y}`);
+            moveTo(stack, next);
             if (next.x === end.x && next.y === end.y) {
                 // found solution
                 return stack.map(b => Object.assign({}, { 'x': b.x, 'y': b.y }));
             }
-            moveTo(stack, next);
             current = next;
         }
         else {
-            //console.log(`backtracking!!`);
             current = stack.pop();
         }
     }
     // no solution
-    console.log(`no solution!!!`);
     return null;
 }
 function nextMove(blocks, current, rows, cols) {
