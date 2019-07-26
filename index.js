@@ -15,13 +15,13 @@ app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 
 
-app.post('/create', function (req, res, next) {
-  const maze = generate(req.body.rows, req.body.cols);
+app.post('/create', async function (req, res, next) {
+  const maze = await generate(req.body.rows, req.body.cols);
   res.json(maze);
 });
 
-app.post('/solve', function (req, res, next) {
-  const solution = solve(req.body);
+app.post('/solve', async function (req, res, next) {
+  const solution = await solve(req.body);
   res.json(solution);
 });
 

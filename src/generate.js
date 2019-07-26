@@ -1,7 +1,7 @@
 const generator = require('@narainmittal/maze-generator');
 
-function generate(rows, cols) {
-    const maze = generator.generateMaze(rows, cols);
+async function generate(rows, cols) {
+    const maze = await generator.generate(rows, cols);
 
     return {
         rows: maze.rows,

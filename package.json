@@ -1,6 +1,6 @@
 {
   "name": "maze-node-app",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "NodeJs app for maze",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/narainmittal/maze-node-app#readme",
   "dependencies": {
-    "@narainmittal/maze-generator": "^1.2.1",
+    "@narainmittal/maze-generator": "^2.x",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^3.18.0"

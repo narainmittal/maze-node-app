@@ -5,7 +5,7 @@ const {
 } = require('./constants');
 const _ = require('lodash');
 
-function solve(maze) {
+async function solve(maze) {
 
     const rows = maze.rows;
     const cols = maze.cols;
@@ -16,9 +16,11 @@ function solve(maze) {
 
     let current = getBlock(blocks, start.x, start.y);
 
-    moveTo(stack, current, start.x, start.y);
+    moveTo(stack, current);
 
     while (stack.length > 0) {
+        current = stack[stack.length - 1];
+
         const next = nextMove(blocks, current, rows, cols);
 
         if (next) {
@@ -27,15 +29,15 @@ function solve(maze) {
                 // found solution
                 return stack.map(b => Object.assign({}, { 'x': b.x, 'y': b.y }));
             }
-            current = next;
         }
         else {
-            current = stack.pop();
+            stack.pop();
         }
     }
     // no solution
     return null;
 }
+
 function nextMove(blocks, current, rows, cols) {
 
     const dirs = _.shuffle(Reflect.ownKeys(DIRECTIONS));
